@@ -241,7 +241,7 @@ It should only modify the values of Spacemacs settings."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press `SPC T n' to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(monokai)
+   dotspacemacs-themes '(molokai)
 
    ;; Set the theme for the Spaceline. Supported themes are `spacemacs',
    ;; `all-the-icons', `custom', `doom', `vim-powerline' and `vanilla'. The
@@ -568,10 +568,6 @@ before packages are loaded."
   (key-chord-mode 1)
   (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
   (load "~/dotfiles/spacemacs-customized.el")
-  (global-set-key (kbd "C-}") 'theme-looper-enable-next-theme)
-  (global-set-key (kbd "C-{") 'theme-looper-enable-previous-theme)
-  (global-set-key (kbd "s-]") 'dired-sidebar-toggle-sidebar)
-  (global-set-key (kbd "s-g") 'magit)
   (theme-looper-set-favorite-themes '(afternoon subatomic256 spacegray rebecca railscasts monokai molokai material lush kaolin-aurora kaolin-dark kaolin-eclipse kaolin-galaxy kaolin-ocean jbeans inkpot))
   (add-to-list 'default-frame-alist '(inhibit-double-buffering . t))
   (org-babel-do-load-languages
@@ -583,8 +579,18 @@ before packages are loaded."
   (setq create-lockfiles nil)
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
   (setq dired-sidebar-theme 'nerd)
-  (setq dired-sidebar-theme 'vscode)
-  (setq dired-sidebar-should-follow-file t)
+  (setq dired-sidebar-refresh-on-projectile-switch nil)
+  (setq dired-sidebar-follow-file-at-point-on-toggle-open nil)
+  (setq dired-sidebar-follow-file-idle-delay 30)
+  (setq dired-sidebar-one-instance-p t)
+  
+  
+
+  ;; Key bindings
+  (global-set-key (kbd "C-}") 'theme-looper-enable-next-theme)
+  (global-set-key (kbd "C-{") 'theme-looper-enable-previous-theme)
+  (global-set-key (kbd "s-]") 'dired-sidebar-toggle-with-current-directory)
+  (global-set-key (kbd "s-g") 'magit)
 )
 
 
