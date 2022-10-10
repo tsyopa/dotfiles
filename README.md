@@ -1,5 +1,9 @@
 # dotfiles
 
+## Requirements
+
+- [JetBrains Nerd Mono font](https://www.nerdfonts.com/font-downloads)
+
 ## Usage
 
 ```sh
